@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>image_saver</name>
+  <version>0.0.1</version>
+  <description>
+    This package can save image.
+  </description>
+  <maintainer email="asilan@uga.edu">Rui Xu</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/thermal_camera</url>
+  <author>Rui Xu</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>OpenImageIO</depend>
+  <depend>nodelet</depend>
+  <depend>sensor_msgs</depend>
+  <depend>image_transport</depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <export>
+    <nodelet plugin="${prefix}/nodelet_plugins.xml"/>
+  </export>
+  <doc_depend>doxygen</doc_depend>
+</package>

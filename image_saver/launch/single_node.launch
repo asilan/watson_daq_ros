@@ -1,0 +1,13 @@
+<launch>
+    <arg name="output" default="screen"/>
+    <arg name="respawn" default="false"/>
+    <arg name="respawn_delay" default="1"/>
+    <arg name="file_root_dir" default="/media/watson/Data/image"/>
+    <arg name="gps_fix" default="mavros/global_position/global"/>
+
+    <node pkg="image_saver" type="image_saver_single_node" name="image_saver_single_node" output="$(arg output)" respawn="$(arg respawn)" respawn_delay="$(arg respawn_delay)">
+        <remap from="~image_raw" to="/camera/image_color"/>
+        <remap from="~fix" to="$(arg gps_fix)"/>
+        <param name="file_name_format" value="$(arg file_root_dir)/left/%04d.png"/>
+    </node>
+</launch>

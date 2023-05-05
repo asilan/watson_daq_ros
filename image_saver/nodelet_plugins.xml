@@ -1,0 +1,8 @@
+<library path="lib/libimage_saver">
+    <class name="image_saver/SingleNodelet" type="image_saver::SingleNodelet"
+        base_class_type="nodelet::Nodelet">
+        <description>
+            This is a nodelet for saving images
+        </description>
+    </class>
+</library>

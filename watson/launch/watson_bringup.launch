@@ -1,0 +1,13 @@
+<launch>
+	<include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
+	<include file="$(find mavros)/launch/apm.launch">
+		<arg name="respawn_mavros" value="true"/>
+		<arg name="fcu_url" value="/dev/ttyACM0"/>
+	</include>
+	<include file="$(find watson)/launch/camera.launch" >
+		<arg name="frame_rate" value="1" />	
+	</include>
+	
+	  <node name = "rqt_dashboard" pkg = "rqt_gui" type = "rqt_gui" respawn = "true" output = "screen" args = "--perspective-file $(find watson)/launch/camera.perspective"/>
+	
+</launch>

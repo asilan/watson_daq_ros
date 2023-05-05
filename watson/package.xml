@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>watson</name>
+  <version>0.0.1</version>
+  <description>
+    This package can save image.
+  </description>
+  <maintainer email="asilan@uga.edu">Rui Xu</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/watson</url>
+  <author>Rui Xu</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+  <doc_depend>doxygen</doc_depend>
+</package>

@@ -1,0 +1,22 @@
+<launch>
+    <arg name="output" default="screen"/>
+    <arg name="respawn" default="false"/>
+    <arg name="respawn_delay" default="1"/>
+    <arg name="camera_name" default="tau2"/>
+    <arg name="file_name_format" default="$(env HOME)/tau2_images/%04d.tif"/>
+    <arg name="gps_fix" default="mavros/global_position/global"/>
+	
+    <!-- Nodelet -->
+    <node pkg="nodelet" type="nodelet" name="$(arg camera_name)_image_saver"
+        args="load image_saver/SingleNodelet $(arg camera_name)_nodelet_manager" output="$(arg output)">
+        <remap from="~image" to="/$(arg camera_name)/image_raw"/>
+        <remap from="~attitude" to="/dji_sdk/attitude"/>
+        <remap from="~fix" to="$(arg gps_fix)"/>
+		<param name="focal_length" value="25"/>
+		<param name="make" value="FLIR"/>
+		<param name="model" value="tau2"/>
+		<param name="xmp_packet" value="$(find tau2)/config/tau2.xmp"/>
+		<param name="copy_right" value="Bio-Sensing and Instrumentation Lab"/>
+        <param name="file_name_format" value="$(arg file_name_format)"/>
+    </node>
+</launch>
